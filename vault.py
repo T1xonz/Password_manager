@@ -3,7 +3,7 @@ import secrets
 from typing import Dict, Optional
 
 from crypto_service import CryptoService
-from models import (
+from expectetions import (
     AuthenticationError,
     Entry,
     EntryExistsError,

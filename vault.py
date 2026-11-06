@@ -34,8 +34,8 @@ class Vault:
     def unlock(self, master_password: str) -> None:
         with open(self._path, "rb") as file:
             raw = file.read()
-        salt = raw[:CryptoService.SALT_SIZE]
-        token = raw[CryptoService.SALT_SIZE:]
+        salt = raw[: CryptoService.SALT_SIZE]
+        token = raw[CryptoService.SALT_SIZE :]
         data = CryptoService.decrypt(token, master_password, salt)
         self._entries = {name: Entry.from_dict(item) for name, item in data.items()}
         self._master_password = master_password

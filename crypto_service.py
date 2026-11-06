@@ -39,6 +39,6 @@ class CryptoService:
         key = CryptoService._derive_key(master_password, salt)
         try:
             decrypted = Fernet(key).decrypt(token)
-        except InvalidToken:
-            raise AuthenticationError("Неверный мастер-пароль.")
+        except InvalidToken as error:
+            raise AuthenticationError("Неверный мастер-пароль.") from error
         return json.loads(decrypted.decode("utf-8"))

@@ -53,7 +53,9 @@ class PasswordManagerApp:
         while True:
             password = self._ui.ask_secret("Придумайте мастер-пароль: ")
             if len(password) < self.MIN_MASTER_LENGTH:
-                self._ui.say(f"Пароль слишком короткий (минимум {self.MIN_MASTER_LENGTH} символов).")
+                self._ui.say(
+                    f"Пароль слишком короткий (минимум {self.MIN_MASTER_LENGTH} символов)."
+                )
                 continue
             if password != self._ui.ask_secret("Повторите мастер-пароль: "):
                 self._ui.say("Пароли не совпадают, попробуйте ещё раз.")

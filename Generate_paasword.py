@@ -12,8 +12,10 @@ class PasswordGenerator:
         length = max(length, cls.MIN_LENGTH)
         while True:
             password = "".join(secrets.choice(cls.ALPHABET) for _ in range(length))
-            if (any(c.islower() for c in password)
-                    and any(c.isupper() for c in password)
-                    and any(c.isdigit() for c in password)
-                    and any(c in cls.SPECIAL for c in password)):
+            if (
+                any(c.islower() for c in password)
+                and any(c.isupper() for c in password)
+                and any(c.isdigit() for c in password)
+                and any(c in cls.SPECIAL for c in password)
+            ):
                 return password
